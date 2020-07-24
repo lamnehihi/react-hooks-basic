@@ -1,0 +1,13 @@
+.color-box {
+  $box-size : 200px;
+
+  width: $box-size!important;
+  height: $box-size !important;
+  font-size: large;
+  
+  border: 1px solid black;
+  border-radius: 5px;
+  transition: all .3s ease-in-out;
+
+  cursor: pointer;
+}
