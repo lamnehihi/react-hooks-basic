@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./app.scss";
 import ColorBox from "./components/ColorBox";
 import TodoList from "./components/TodoList";
+import TodoForm from "./components/TodoForm";
 
 function App() {
   const [todoList, setTodoList] = useState([
@@ -18,10 +19,22 @@ function App() {
     setTodoList(NewTodoList);
   };
 
+  function onTodoFormSubmit(formValues) {
+    const NewTodoList = [...todoList];
+    const newTodo = {
+      id: NewTodoList.length+1,
+      ...formValues
+    }
+    NewTodoList.push(newTodo);
+    console.log(newTodo);
+    setTodoList(NewTodoList);
+  }
+
   return (
     <div className="app">
       <ColorBox />
       <TodoList todos={todoList} onTodoClick={onTodoClick} />
+      <TodoForm onSubmit={onTodoFormSubmit}/>
     </div>
   );
 }
